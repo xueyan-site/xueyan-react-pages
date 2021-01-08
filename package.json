@@ -1,0 +1,35 @@
+{
+  "name": "xueyan-react-pages",
+  "version": "1.0.0",
+  "author": "xueyan <yang@xueyan.site>",
+  "license": "MIT",
+  "description": "",
+  "xueyan": "xueyan.json",
+  "keywords": [],
+  "main": "dist/lib",
+  "module": "dist/es",
+  "types": "dist/types",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "yarn start-doc",
+    "build": "xueyan-typescript build",
+    "watch": "xueyan-typescript build --watch",
+    "start-doc": "xueyan-typescript start doc",
+    "build-doc": "xueyan-typescript build doc",
+    "serve-doc": "xueyan-typescript serve doc"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.12.5"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.49",
+    "react": "^16.13.1",
+    "typescript": "^4.0.3"
+  }
+}
