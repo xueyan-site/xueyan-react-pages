@@ -135,16 +135,29 @@ function computeGroupList({
     }
   }
   if (readme) {
-    groupList.unshift({
-      nodeList: [
-        {
-          path: '/readme',
-          name: 'README',
-          noTitle: true,
-          component: readme
+    let hasReadme: boolean = false
+    for (let i = 0; i < groupList.length; i++) {
+      const nodeList = groupList[i].nodeList
+      for (let j = 0; j < nodeList.length; j++) {
+        if (nodeList[j].path === '/readme') {
+          nodeList[j].component = readme
+          hasReadme = true
+          break
         }
-      ]
-    })
+      }
+    }
+    if (!hasReadme) {
+      groupList.unshift({
+        nodeList: [
+          {
+            path: '/readme',
+            name: 'README',
+            noTitle: true,
+            component: readme
+          }
+        ]
+      })
+    }
   }
   return { groupList, header, langList, lang }
 }
