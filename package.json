@@ -1,6 +1,6 @@
 {
   "name": "xueyan-react-pages",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "author": "xueyan <yang@xueyan.site>",
   "license": "MIT",
   "description": "React Document Reader Component",
@@ -21,7 +21,7 @@
   "module": "dist/es",
   "types": "dist/types",
   "files": [
-    "dist"
+    "dist/**/*"
   ],
   "scripts": {
     "start": "yarn start-doc",
@@ -33,7 +33,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.12.5",
-    "classnames": "^2.2.6"
+    "classnames": "^2.2.6",
+    "xueyan-react-markdown": "^1.1.1"
   },
   "peerDependencies": {
     "react": "^16.13.1",

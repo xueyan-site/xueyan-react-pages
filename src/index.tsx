@@ -4,9 +4,10 @@
  * @description package entry
  */
 
-import React, { Suspense, ReactNode, ComponentType, useMemo, useState } from "react"
+import React, { Suspense, ReactNode, ComponentType, useMemo, useState, useEffect } from "react"
 import { Link, useRouteMatch, useHistory, Redirect, Route, Switch, useLocation } from 'react-router-dom'
 import classNames from 'classnames'
+import { MarkdownAirticle } from 'xueyan-react-markdown'
 import styles from './index.module.scss'
 
 /**
@@ -86,6 +87,11 @@ export interface PagesProps extends Pick<React.CSSProperties, 'width' | 'height'
    */
   sources?: PageSources
 }
+
+/**
+ * 暗黑主题键
+ */
+const DARK_KEY = 'xueyan-react-pages-dark-theme'
 
 /**
  * 计算GroupList相关量
@@ -235,10 +241,19 @@ export default function Pages({
   const history = useHistory()
   const { pathname } = useLocation()
   const { path } = useRouteMatch()
+  const [ dark, setDark ] = useState<boolean>(false)
   const [ visible, setVisible ] = useState<boolean>(false)
 
   const pathPre = path === '/' ? '' : path
   const pathSuf = pathname.replace(pathPre, '')
+
+  useEffect(() => {
+    if (localStorage) {
+      if (localStorage.getItem(DARK_KEY)) {
+        setDark(true)
+      }
+    }
+  }, [])
 
   const { groupList, header, langList, lang } = useMemo(() => {
     return computeGroupList({ readme, source, sources, pathSuf })
@@ -254,9 +269,22 @@ export default function Pages({
 
   const openMenu = () => setVisible(true)
   const closeMenu = () => setVisible(false)
+  const toggleDark = () => {
+    setDark(!dark)
+    if (localStorage) {
+      if (dark) {
+        localStorage.removeItem(DARK_KEY)
+      } else {
+        localStorage.setItem(DARK_KEY, 'true')
+      }
+    }
+  }
 
   return (
-    <div className={classNames(styles.wrapper, visible && styles.visible)} style={style}>
+    <div 
+      style={style}
+      className={classNames(styles.wrapper, visible && styles.visible, dark && styles.dark)} 
+    >
       <div className={styles.side}>
         <div className={styles.sideHeader}>
           {header}
@@ -275,7 +303,7 @@ export default function Pages({
                   key={item} 
                   value={item}
                 >
-                  {LANG_NAME_MAP[item]} {item}
+                  {LANG_NAME_MAP[item]}({item})
                 </option>
               ))}
             </select>
@@ -302,13 +330,15 @@ export default function Pages({
             })}
           </div>
         ))}
+        <div className={styles.settings}>
+          <div className={styles.switcher} onClick={toggleDark}/>
+        </div>
       </div>
       <div className={styles.main}>
         <div className={styles.mainInner}>
-          <article className={styles.mainBody}>
-            {current?.noTitle ? (
-              <div className={styles.mainTitle}></div>
-            ) : (
+          <div className={styles.menu} onClick={openMenu}>menu</div>
+          <MarkdownAirticle dark={dark} className={styles.mainBody}>
+            {current?.noTitle || (
               <h1 className={styles.mainTitle}>
                 {current?.name}
               </h1>
@@ -330,10 +360,9 @@ export default function Pages({
                 )}
               </Switch>
             </Suspense>
-          </article>
+          </MarkdownAirticle>
         </div>
       </div>
-      <div className={styles.menu} onClick={openMenu}>menu</div>
       <div className={styles.mask} onClick={closeMenu}></div>
     </div>
   )

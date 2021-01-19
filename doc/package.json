@@ -13,8 +13,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "normalize.css": "^8.0.1",
-    "react-dom": "^16.13.1",
-    "xueyan-react-markdown": "^1.0.1"
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.10",
