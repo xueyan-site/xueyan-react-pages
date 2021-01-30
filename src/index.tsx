@@ -217,19 +217,33 @@ function computeNode({
   pagesList: PageGroup2[],
   pathSuf: string
 }) {
-  let currNode: PageNode2 |  undefined
+  let prevNode: PageNode2 | undefined
+  let currNode: PageNode2 | undefined
+  let nextNode: PageNode2 | undefined
   for (let i = 0; i < pagesList.length; i++) {
     const pageGroup = pagesList[i]
     const nodeList = pageGroup.nodeList
     for (let j = 0; j < nodeList.length; j++) {
       const node = nodeList[j]
-      if (node.__pathWithLang__ && pathSuf.indexOf(node.__pathWithLang__) === 0) {
-        currNode = node
+      if (currNode) {
+        nextNode = node
         break
+      } else if (node.__pathWithLang__ && pathSuf.indexOf(node.__pathWithLang__) === 0) {
+        currNode = node
+      } else {
+        prevNode = node
       }
     }
   }
-  return currNode
+  if (!currNode) {
+    prevNode = undefined
+    nextNode = undefined
+  }
+  return {
+    prevNode,
+    currNode,
+    nextNode
+  }
 }
 
 export default function Pages({
@@ -241,17 +255,15 @@ export default function Pages({
   const history = useHistory()
   const { pathname } = useLocation()
   const { path } = useRouteMatch()
-  const [ dark, setDark ] = useState<boolean>(false)
+  const [ dark, setDark ] = useState<boolean>(true)
   const [ visible, setVisible ] = useState<boolean>(false)
 
   const pathPre = path === '/' ? '' : path
   const pathSuf = pathname.replace(pathPre, '')
 
   useEffect(() => {
-    if (localStorage) {
-      if (localStorage.getItem(DARK_KEY)) {
-        setDark(true)
-      }
+    if (localStorage && !localStorage.getItem(DARK_KEY)) {
+      setDark(false)
     }
   }, [])
 
@@ -263,7 +275,7 @@ export default function Pages({
     return computePageList({ groupList, lang, pathPre })
   }, [groupList, lang, pathPre])
 
-  const current = useMemo(() => {
+  const { prevNode, currNode, nextNode } = useMemo(() => {
     return computeNode({ pagesList, pathSuf })
   }, [pagesList, pathSuf])
 
@@ -286,61 +298,63 @@ export default function Pages({
       className={classNames(styles.wrapper, visible && styles.visible, dark && styles.dark)} 
     >
       <div className={styles.side}>
-        <div className={styles.sideHeader}>
-          {header}
-        </div>
-        {lang && langList.length > 0 && (
-          <div className={styles.sideLangs}>
-            <select
-              className={styles.langSelector}
-              value={lang}
-              onChange={event => {
-                history.push(pathPre + '/' + event.target.value + current?.__path__ || '')
-              }}
-            >
-              {langList.map(item => (
-                <option 
-                  key={item} 
-                  value={item}
-                >
-                  {LANG_NAME_MAP[item]}({item})
-                </option>
-              ))}
-            </select>
+        <div className={styles.sideInner}>
+          <div className={styles.sideHeader}>
+            {header}
           </div>
-        )}
-        {pagesList.map((pages, index) => (
-          <div className={styles.menuGroup} key={index}>
-            {pages.name && (
-              <div className={styles.menuName}>{pages.name}</div>
-            )}
-            {pages.nodeList.map(item => {
-              const { component, name, noTitle, path, __path__, __pathWithLang__, ...other } = item
-              return (
-                <Link 
-                  {...other}
-                  key={path}
-                  className={classNames(styles.menuNode, current === item && styles.active)} 
-                  to={path}
-                  onClick={closeMenu}
-                >
-                  {name}
-                </Link>
-              )
-            })}
+          {lang && langList.length > 0 && (
+            <div className={styles.sideLangs}>
+              <select
+                className={styles.langSelector}
+                value={lang}
+                onChange={event => {
+                  history.push(pathPre + '/' + event.target.value + currNode?.__path__ || '')
+                }}
+              >
+                {langList.map(item => (
+                  <option 
+                    key={item} 
+                    value={item}
+                  >
+                    {LANG_NAME_MAP[item]}({item})
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
+          {pagesList.map((pages, index) => (
+            <div className={styles.menuGroup} key={index}>
+              {pages.name && (
+                <div className={styles.menuName}>{pages.name}</div>
+              )}
+              {pages.nodeList.map(item => {
+                const { component, name, noTitle, path, __path__, __pathWithLang__, ...other } = item
+                return (
+                  <Link 
+                    {...other}
+                    key={path}
+                    className={classNames(styles.menuNode, currNode === item && styles.active)} 
+                    to={path}
+                    onClick={closeMenu}
+                  >
+                    {name}
+                  </Link>
+                )
+              })}
+            </div>
+          ))}
+          <div className={styles.settings}>
+            <div className={styles.switcher} onClick={toggleDark}/>
           </div>
-        ))}
-        <div className={styles.settings}>
-          <div className={styles.switcher} onClick={toggleDark}/>
         </div>
       </div>
       <div className={styles.main}>
         <div className={styles.mainInner}>
           <div className={styles.menu} onClick={openMenu}>menu</div>
           <MarkdownAirticle dark={dark} className={styles.mainBody}>
-            {current?.noTitle || (
+            {currNode?.noTitle || (
               <h1 className={styles.mainTitle}>
-                {current?.name}
+                {currNode?.name}
               </h1>
             )}
             <Suspense fallback={null}>
@@ -361,6 +375,25 @@ export default function Pages({
               </Switch>
             </Suspense>
           </MarkdownAirticle>
+          {(prevNode || nextNode) && (
+            <div className={styles.bottomNav}>
+              {prevNode && (
+                <Link className={styles.prevNav} to={prevNode.path}>
+                  <div className={styles.navItemLabel}>Prev</div>
+                  <div className={styles.navItemName}>{prevNode.name}</div>
+                </Link>
+              )}
+              {prevNode && nextNode && (
+                <div className={styles.navSpace}></div>
+              )}
+              {nextNode && (
+                <Link className={styles.nextNav} to={nextNode.path}>
+                  <div className={styles.navItemLabel}>Next</div>
+                  <div className={styles.navItemName}>{nextNode.name}</div>
+                </Link>
+              )}
+            </div>
+          )}
         </div>
       </div>
       <div className={styles.mask} onClick={closeMenu}></div>

@@ -48,9 +48,9 @@
     "@types/react-router" "*"
 
 "@types/react-router@*":
-  version "5.1.10"
-  resolved "https://registry.npmjs.org/@types/react-router/-/react-router-5.1.10.tgz#7de7ad3df20a8adb2b97943f1871ca4d2705c42c"
-  integrity sha512-yu11Hu16CfGvvBWc7wluRlxbwfuSlY0snEntbbOTvfgMvyO6uLaEpAbnVOntr+9TNIpR++OOlPkmDcJPxOXRaQ==
+  version "5.1.11"
+  resolved "https://registry.npmjs.org/@types/react-router/-/react-router-5.1.11.tgz#b01ce4cb21bf7d6b32edc862fc1e2c0088044b5b"
+  integrity sha512-ofHbZMlp0Y2baOHgsWBQ4K3AttxY61bDMkwTiBOkPg7U6C/3UwwB5WaIx28JmSVi/eX3uFEMRo61BV22fDQIvg==
   dependencies:
     "@types/history" "*"
     "@types/react" "*"
@@ -170,9 +170,9 @@ domutils@^2.4.2:
     domhandler "^4.0.0"
 
 entities@^2.0.0:
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/entities/-/entities-2.1.0.tgz#992d3129cf7df6870b96c57858c249a120f8b8b5"
-  integrity sha512-hCx1oky9PFrJ611mf0ifBLBRW8lUUVRlFolb5gWRfIELabBlbp9xZvrqZLZAs+NxFnbfQoeGd8wDkygjg7U85w==
+  version "2.2.0"
+  resolved "https://registry.npmjs.org/entities/-/entities-2.2.0.tgz#098dc90ebb83d8dffa089d55256b351d34c4da55"
+  integrity sha512-p92if5Nz619I0w+akJrLZH0MX0Pb5DX39XOwQTtXSdQQOaYH03S1uIQp4mhOZtAXrxq4ViO67YTiLBo2638o9A==
 
 extend@^3.0.0:
   version "3.0.2"
@@ -407,9 +407,9 @@ mdast-util-to-string@^2.0.0:
   integrity sha512-AW4DRS3QbBayY/jJmD8437V1Gombjf8RSOUCMFBuo5iHi58AGEgVCKQ+ezHkZZDpAQS75hcBMpLqjpJTjtUL7w==
 
 micromark-extension-gfm-autolink-literal@~0.5.0:
-  version "0.5.4"
-  resolved "https://registry.npmjs.org/micromark-extension-gfm-autolink-literal/-/micromark-extension-gfm-autolink-literal-0.5.4.tgz#0c8cc7004dd2277ed8f52e01195432291c47e699"
-  integrity sha512-471VKd4k3SiX7vx9fC+IYeGQL0RnxwBBXeEc5WConb7naJDG5m16guA+VoFzyXchrvmU08t0dUWWPZ0mkJSXVw==
+  version "0.5.5"
+  resolved "https://registry.npmjs.org/micromark-extension-gfm-autolink-literal/-/micromark-extension-gfm-autolink-literal-0.5.5.tgz#ca1951b12766e21c0533372b8fb9d78435de1604"
+  integrity sha512-UBK5/7efGCyfNW3bGAOIB0zaMfclhXi7/f4JPJkLCBgoksPJJs2UeX/uk2FS7H/cbnGd7L7X0CbNkH6ceK82Ww==
   dependencies:
     micromark "~2.11.0"
 
@@ -595,9 +595,9 @@ react@^16.13.1:
     prop-types "^15.6.2"
 
 refractor@^3.2.0:
-  version "3.3.0"
-  resolved "https://registry.npmjs.org/refractor/-/refractor-3.3.0.tgz#42a7d58f14a1d1bcda52a8c66123601a71e5d47d"
-  integrity sha512-c/jEhQjk1NDyTF3hMgtu8PigaqkWUv+c5+mBffZCTnjyrNSJkG+0eoTOJV/u0XCTuPfaFzJyj6MM4HnF0Wr27Q==
+  version "3.3.1"
+  resolved "https://registry.npmjs.org/refractor/-/refractor-3.3.1.tgz#ebbc04b427ea81dc25ad333f7f67a0b5f4f0be3a"
+  integrity sha512-vaN6R56kLMuBszHSWlwTpcZ8KTMG6aUCok4GrxYDT20UIOXxOc5o6oDc8tNTzSlH3m2sI+Eu9Jo2kVdDcUTWYw==
   dependencies:
     hastscript "^6.0.0"
     parse-entities "^2.0.0"
@@ -742,10 +742,10 @@ xtend@^4.0.0, xtend@^4.0.1:
   resolved "https://registry.npmjs.org/xtend/-/xtend-4.0.2.tgz#bb72779f5fa465186b1f438f674fa347fdb5db54"
   integrity sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==
 
-xueyan-react-markdown@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.npmjs.org/xueyan-react-markdown/-/xueyan-react-markdown-1.1.1.tgz#4b9adc60742c67f9c088e7e2e76a9f6afa0dfaa4"
-  integrity sha512-HO2xLbbDcCW/3JCX35wA0PmmPQPcl7RPsKj0GaoLr5IS9NvTmMeV7P0PS96iTQA6BcVxuScrrK2prEXgx3aoGg==
+xueyan-react-markdown@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.npmjs.org/xueyan-react-markdown/-/xueyan-react-markdown-1.2.1.tgz#4df0e02171d26262b50d3c72e531b0daa1828d5c"
+  integrity sha512-0VpItHx5xvtmTwSasI//A4nhjyWQDBYkqjIs86w5P7QQD9xRrr7rDcEZBTRT3BjoQjr408hpZsIz7LhMGvVoTQ==
   dependencies:
     "@babel/runtime" "^7.12.5"
     classnames "^2.2.6"

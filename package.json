@@ -1,6 +1,6 @@
 {
   "name": "xueyan-react-pages",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "author": "xueyan <yang@xueyan.site>",
   "license": "MIT",
   "description": "React Document Reader Component",
@@ -33,13 +33,13 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.12.5",
-    "classnames": "^2.2.6",
-    "xueyan-react-markdown": "^1.1.1"
+    "classnames": "^2.2.6"
   },
   "peerDependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "xueyan-react-markdown": "^1.2.1"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.10",
@@ -47,6 +47,7 @@
     "@types/react-router-dom": "^5.1.7",
     "react": "^16.13.1",
     "react-router-dom": "^5.2.0",
-    "typescript": "^4.0.3"
+    "typescript": "^4.0.3",
+    "xueyan-react-markdown": "^1.2.1"
   }
 }

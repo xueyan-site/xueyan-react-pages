@@ -14,23 +14,32 @@
 
 .side {
   width: calc(50% - 288px);
-  height: 100%;
   min-width: 224px;
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sideInner {
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  background-color: #fff;
   box-sizing: border-box;
   padding: 80px 0 60px;
-  border-right: 1px solid #eee;
+  box-shadow: inset -1px 0 0 #eee;
   position: relative;
   &::-webkit-scrollbar {
     width: 1px;
     height: 1px;
+    overflow: overlay;
     background-color: transparent;
   }
   &::-webkit-scrollbar-thumb {
-    background-color: #999;
+    background-color: #3388ff;
   }
 }
 
@@ -42,6 +51,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  text-align: right;
 }
 
 .sideLangs {
@@ -89,6 +99,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  text-align: right;
   text-decoration: none;
   color: #999;
   -webkit-tap-highlight-color: transparent;
@@ -157,13 +168,77 @@
   width: 100%;
   max-width: 800px;
   min-height: 100%;
+  box-sizing: border-box;
+  padding: 64px 16px 300px;
+  position: relative;
 }
 
 .mainBody {
-  padding-top: 64px;
-  padding-bottom: 300px;
-  box-sizing: border-box;
+  padding: 0;
   position: relative;
+  box-sizing: border-box;
+}
+
+.bottomNav {
+  position: absolute;
+  bottom: 240px;
+  transform: translateY(100%);
+  left: 16px;
+  right: 16px;
+  display: flex;
+  flex-flow: row nowrap;
+  .navSpace {
+    width: 12px;
+    height: 12px;
+  }
+  .prevNav, .nextNav {
+    flex: 1;
+    border: 1px solid #eaecef;
+    border-radius: 6px;
+    color: inherit;
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+      border-color: #3388ff;
+    }
+    .navItemLabel {
+      font-size: 18px;
+      line-height: 24px;
+      position: relative;
+    }
+    .navItemName {
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
+  .prevNav {
+    padding: 16px 16px 16px 28px;
+    .navItemLabel {
+      &::before {
+        content: '←';
+        position: absolute;
+        left: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+  .nextNav {
+    padding: 16px 28px 16px 16px;
+    .navItemLabel {
+      text-align: right;
+      &::before {
+        content: '→';
+        position: absolute;
+        right: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+    .navItemName {
+      text-align: right;
+    }
+  }
 }
 
 .mask {
@@ -188,7 +263,7 @@
   }
   .side {
     z-index: 99;
-    display: block;
+    display: flex;
     position: absolute;
     top: 0;
     left: 0;
@@ -196,7 +271,9 @@
     height: 100%;
     transform: translateX(-100%);
     transition: transform .3s;
-    border-right: none;
+  }
+  .sideInner {
+    box-shadow: none;
   }
   .menu {
     z-index: 98;
@@ -214,6 +291,9 @@
     justify-content: center;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
+  }
+  .bottomNav {
+    flex-flow: column nowrap;
   }
 }
 
@@ -233,10 +313,9 @@
   background-color: #000;
   .side {
     background-color: #000;
-    border-right-color: #30363d;
-    &::-webkit-scrollbar-thumb {
-      background-color: #666;
-    }
+  }
+  .sideInner {
+    box-shadow: inset -1px 0 0 #30363d;
   }
   .menuName {
     color: #666;
@@ -259,6 +338,16 @@
   }
   > .mask {
     background-color: rgba(255,255,255,.2);
+  }
+  .bottomNav {
+    .prevNav, .nextNav {
+      border: 1px solid #30363d;
+      color: inherit;
+      text-decoration: none;
+      &:hover {
+        border-color: #3388ff;
+      }
+    }
   }
   @media screen and (max-width: 800px) {
     .menu {
