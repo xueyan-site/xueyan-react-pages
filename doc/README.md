@@ -1,5 +1,7 @@
-# xueyan-react-pages-doc
+# xueyan-react-pages document
 
-xueyan-react-pages-doc is a react application.
+xueyan-react-pages document 是一个React应用程序。  
+xueyan-react-pages document is a a react application.  
 
-The project created by xueyan <yang@xueyan.site>.
+本项目创建自 xueyan <yang@xueyan.site>。  
+The project created by xueyan <yang@xueyan.site>.  

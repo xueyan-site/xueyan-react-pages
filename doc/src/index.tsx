@@ -1,7 +1,7 @@
 /**
  * @package xueyan-react-pages
  * @author xueyan <yang@xueyan.site>
- * @description doc entry
+ * @description 文档入口 document entry
  */
 
 import React, { lazy } from 'react'
@@ -10,357 +10,59 @@ import { BrowserRouter } from 'react-router-dom'
 import Pages, { PageSources } from 'xueyan-react-pages'
 import './index.scss'
 
-const Readme = lazy(() => import('./pages/readme'))
-const Example1 = lazy(() => import('./pages/example1'))
-const Interface1 = lazy(() => import('./pages/interface1'))
-const Interface2 = lazy(() => import('./pages/interface2'))
+const Readme = lazy(() => import('./readme'))
 
 const sources: PageSources = {
-  zh: {
+  en: {
     header: 'xueyan-react-pages',
     groupList: [
       {
-        name: '示例',
+        name: 'api',
         nodeList: [
           {
-            path: '/example1',
-            name: '示例1',
-            component: Example1
+            path: '/api-one',
+            name: 'SwitchProps',
+            component: lazy(() => import('pages/en/api-one'))
           }
         ]
       },
       {
-        name: 'API',
+        name: 'use',
         nodeList: [
           {
-            path: '/interface1',
-            name: '接口1',
-            component: Interface1
-          },
-          {
-            path: '/interface2',
-            name: '接口2',
-            component: Interface2
+            path: '/use-one',
+            name: 'normal',
+            component: lazy(() => import('pages/en/use-one'))
           }
         ]
       }
     ]
   },
-  en: {
+  zh: {
     header: 'xueyan-react-pages',
     groupList: [
+      {
+        name: '接口',
+        nodeList: [
+          {
+            path: '/api-one',
+            name: 'SwitchProps',
+            component: lazy(() => import('pages/zh/api-one'))
+          }
+        ]
+      },
       {
         name: '示例',
         nodeList: [
           {
-            path: '/example1',
-            name: '示例1',
-            component: Example1
-          }
-        ]
-      },
-      {
-        name: 'API',
-        nodeList: [
-          {
-            path: '/interface1',
-            name: '接口1',
-            component: Interface1
-          },
-          {
-            path: '/interface2',
-            name: '接口2',
-            component: Interface2
-          }
-        ]
-      },
-      {
-        name: 'API',
-        nodeList: [
-          {
-            path: '/interface1',
-            name: '接口1',
-            component: Interface1
-          },
-          {
-            path: '/interface2',
-            name: '接口2',
-            component: Interface2
-          }
-        ]
-      },
-      {
-        name: 'API',
-        nodeList: [
-          {
-            path: '/interface1',
-            name: '接口1',
-            component: Interface1
-          },
-          {
-            path: '/interface2',
-            name: '接口2',
-            component: Interface2
-          }
-        ]
-      },
-      {
-        name: 'API',
-        nodeList: [
-          {
-            path: '/interface1',
-            name: '接口1',
-            component: Interface1
-          },
-          {
-            path: '/interface2',
-            name: '接口2',
-            component: Interface2
-          }
-        ]
-      },
-      {
-        name: 'API',
-        nodeList: [
-          {
-            path: '/interface1',
-            name: '接口1',
-            component: Interface1
-          },
-          {
-            path: '/interface2',
-            name: '接口2',
-            component: Interface2
-          }
-        ]
-      },
-      {
-        name: 'API',
-        nodeList: [
-          {
-            path: '/interface1',
-            name: '接口1',
-            component: Interface1
-          },
-          {
-            path: '/interface2',
-            name: '接口2',
-            component: Interface2
-          }
-        ]
-      },
-      {
-        name: 'API',
-        nodeList: [
-          {
-            path: '/interface1',
-            name: '接口1',
-            component: Interface1
-          },
-          {
-            path: '/interface2',
-            name: '接口2',
-            component: Interface2
-          }
-        ]
-      },
-      {
-        name: 'API',
-        nodeList: [
-          {
-            path: '/interface1',
-            name: '接口1',
-            component: Interface1
-          },
-          {
-            path: '/interface2',
-            name: '接口2',
-            component: Interface2
-          }
-        ]
-      },
-      {
-        name: 'API',
-        nodeList: [
-          {
-            path: '/interface1',
-            name: '接口1',
-            component: Interface1
-          },
-          {
-            path: '/interface2',
-            name: '接口2',
-            component: Interface2
-          }
-        ]
-      },
-      {
-        name: 'API',
-        nodeList: [
-          {
-            path: '/interface1',
-            name: '接口1',
-            component: Interface1
-          },
-          {
-            path: '/interface2',
-            name: '接口2',
-            component: Interface2
-          }
-        ]
-      },
-      {
-        name: 'API',
-        nodeList: [
-          {
-            path: '/interface1',
-            name: '接口1',
-            component: Interface1
-          },
-          {
-            path: '/interface2',
-            name: '接口2',
-            component: Interface2
-          }
-        ]
-      },
-      {
-        name: 'API',
-        nodeList: [
-          {
-            path: '/interface1',
-            name: '接口1',
-            component: Interface1
-          },
-          {
-            path: '/interface2',
-            name: '接口2',
-            component: Interface2
-          }
-        ]
-      },
-      {
-        name: 'API',
-        nodeList: [
-          {
-            path: '/interface1',
-            name: '接口1',
-            component: Interface1
-          },
-          {
-            path: '/interface2',
-            name: '接口2',
-            component: Interface2
-          }
-        ]
-      },
-      {
-        name: 'API',
-        nodeList: [
-          {
-            path: '/interface1',
-            name: '接口1',
-            component: Interface1
-          },
-          {
-            path: '/interface2',
-            name: '接口2',
-            component: Interface2
-          }
-        ]
-      },
-      {
-        name: 'API',
-        nodeList: [
-          {
-            path: '/interface1',
-            name: '接口1',
-            component: Interface1
-          },
-          {
-            path: '/interface2',
-            name: '接口2',
-            component: Interface2
-          }
-        ]
-      },
-      {
-        name: 'API',
-        nodeList: [
-          {
-            path: '/interface1',
-            name: '接口1',
-            component: Interface1
-          },
-          {
-            path: '/interface2',
-            name: '接口2',
-            component: Interface2
-          }
-        ]
-      },
-      {
-        name: 'API',
-        nodeList: [
-          {
-            path: '/interface1',
-            name: '接口1',
-            component: Interface1
-          },
-          {
-            path: '/interface2',
-            name: '接口2',
-            component: Interface2
-          }
-        ]
-      },
-      {
-        name: 'API',
-        nodeList: [
-          {
-            path: '/interface1',
-            name: '接口1',
-            component: Interface1
-          },
-          {
-            path: '/interface2',
-            name: '接口2',
-            component: Interface2
-          }
-        ]
-      },
-      {
-        name: 'API',
-        nodeList: [
-          {
-            path: '/interface1',
-            name: '接口1',
-            component: Interface1
-          },
-          {
-            path: '/interface2',
-            name: '接口2',
-            component: Interface2
-          }
-        ]
-      },
-      {
-        name: 'API',
-        nodeList: [
-          {
-            path: '/interface1',
-            name: '接口1',
-            component: Interface1
-          },
-          {
-            path: '/interface2',
-            name: '接口2',
-            component: Interface2
+            path: '/use-one',
+            name: '常规用法',
+            component: lazy(() => import('pages/zh/use-one'))
           }
         ]
       }
     ]
-  }
+  },
 }
 
 function App() {

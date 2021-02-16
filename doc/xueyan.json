@@ -2,7 +2,6 @@
   "type": "react-application",
   "moduleAlias": {
     "xueyan-react-pages": "../src",
-    "components": "src/components",
     "pages": "src/pages"
   },
   "startProxy": [

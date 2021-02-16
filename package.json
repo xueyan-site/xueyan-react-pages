@@ -1,10 +1,17 @@
 {
   "name": "xueyan-react-pages",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "author": "xueyan <yang@xueyan.site>",
   "license": "MIT",
   "description": "React Document Reader Component",
   "xueyan": "xueyan.json",
+  "main": "dist/lib",
+  "module": "dist/es",
+  "types": "dist/types",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xueyan-site/xueyan-react-pages.git"
+  },
   "keywords": [
     "react",
     "component",
@@ -13,13 +20,6 @@
     "website",
     "xueyan-typescript"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/xueyan-site/xueyan-react-pages.git"
-  },
-  "main": "dist/lib",
-  "module": "dist/es",
-  "types": "dist/types",
   "files": [
     "dist/**/*"
   ],

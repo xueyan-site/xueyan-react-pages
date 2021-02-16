@@ -2,7 +2,7 @@
   "name": "xueyan-react-pages-doc",
   "version": "1.0.0",
   "author": "xueyan <yang@xueyan.site>",
-  "description": "",
+  "description": "xueyan-react-pages project document",
   "private": true,
   "xueyan": "xueyan.json",
   "scripts": {
@@ -17,8 +17,7 @@
   },
   "devDependencies": {
     "@types/classnames": "^2.2.10",
-    "@types/react-dom": "^16.9.10",
-    "@types/react-router-dom": "^5.1.5"
+    "@types/react-dom": "^16.9.8"
   },
   "browserslist": {
     "production": [

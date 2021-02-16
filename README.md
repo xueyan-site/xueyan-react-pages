@@ -1,17 +1,27 @@
-# xueyan-react-pages
+# xueyan-react-demo
 
-xueyan-react-pages is a react document reader component.
+xueyan-react-demo 是一个 react 文档渲染组件。  
+xueyan-react-demo is a react document reader component.  
 
-The project created by xueyan <yang@xueyan.site>.
+本项目创建自 xueyan <yang@xueyan.site>。  
+The project created by xueyan <yang@xueyan.site>.  
 
-Please [**View Document**](https://xueyan.site/xueyan-react-pages) to get more detail.
+更多详情请查看[**文档**](https://xueyan.site/xueyan-react-pages)。  
+Please [**View Document**](https://xueyan.site/xueyan-react-pages) to get more detail.  
 
-## Install
+## 下载 Install
 
-- NPM: `npm i xueyan-react-pages`  
-- YARN: `yarn add xueyan-react-pages`  
+```bash
+# 如果你使用的是NPM：
+# if you use NPM: 
+npm i xueyan-react-demo
 
-## Example
+# 如果你使用的是Yarn：
+# if you use Yarn: 
+yarn add xueyan-react-demo
+```
+
+## 示例 Example
 
 ```ts
 import React, { lazy } from 'react'

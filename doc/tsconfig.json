@@ -21,7 +21,6 @@
     "baseUrl": ".",
     "paths": {
       "xueyan-react-pages": ["../src"],
-      "components/*": ["./src/components/*"],
       "pages/*": ["./src/pages/*"]
     }
   }
