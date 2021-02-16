@@ -1,7 +1,7 @@
-# xueyan-react-demo
+# xueyan-react-pages
 
-xueyan-react-demo 是一个 react 文档渲染组件。  
-xueyan-react-demo is a react document reader component.  
+xueyan-react-pages 是一个 react 文档渲染组件。  
+xueyan-react-pages is a react document reader component.  
 
 本项目创建自 xueyan <yang@xueyan.site>。  
 The project created by xueyan <yang@xueyan.site>.  
@@ -14,11 +14,11 @@ Please [**View Document**](https://xueyan.site/xueyan-react-pages) to get more d
 ```bash
 # 如果你使用的是NPM：
 # if you use NPM: 
-npm i xueyan-react-demo
+npm i xueyan-react-pages
 
 # 如果你使用的是Yarn：
 # if you use Yarn: 
-yarn add xueyan-react-demo
+yarn add xueyan-react-pages
 ```
 
 ## 示例 Example
